@@ -10,8 +10,8 @@ function App() {
     "Mathara",
   ];
 
-  const onSelect = ()=> {
-    console.log('Selected');
+  const onSelect = (item :string) => {
+    console.log(item);
   }
 
   return <div><ListGroup items={items} headding="Citys" onSelectItem={onSelect} /></div>
