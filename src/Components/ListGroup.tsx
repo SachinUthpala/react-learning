@@ -1,3 +1,4 @@
+import { MouseEvent } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 function ListGroup() {
@@ -12,7 +13,7 @@ function ListGroup() {
         'Mathara'
     ];
 
-    items = [];
+    const eventHandler = (event : MouseEvent ) => console.log(event);
 
   return (
     <Fragment>
@@ -21,7 +22,7 @@ function ListGroup() {
       {/* second way in this case we dont need to use null operation */}
       {items.length === 0 && <p>No items found</p>}
       <ul className="list-group">
-        {items.map(item => <li key={item} >{item}</li>)}
+        {items.map(item => <li className="list-group-item active" key={item} onClick={eventHandler} >{item}</li>)}
       </ul>
     </Fragment>
   );
