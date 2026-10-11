@@ -1,19 +1,18 @@
-import { MouseEvent } from "react";
+import { useState } from "react";
 import { Fragment } from "react/jsx-runtime";
 
 function ListGroup() {
+  let items = [
+    "New York",
+    "Kurunegala",
+    "Polgahawela",
+    "Point Fedro",
+    "Mathara",
+  ];
 
+  // const eventHandler = (event : MouseEvent ) => console.log(event);
 
-
-    let items = [
-        'New York',
-        'Kurunegala',
-        'Polgahawela',
-        'Point Fedro',
-        'Mathara'
-    ];
-
-    const eventHandler = (event : MouseEvent ) => console.log(event);
+  const [selectedIndes, setSelectedIndex] = useState(0);
 
   return (
     <Fragment>
@@ -22,7 +21,13 @@ function ListGroup() {
       {/* second way in this case we dont need to use null operation */}
       {items.length === 0 && <p>No items found</p>}
       <ul className="list-group">
-        {items.map(item => <li className="list-group-item active" key={item} onClick={eventHandler} >{item}</li>)}
+        {items.map((item , index) => (
+          <li className={selectedIndes === index ? "list-group-item active" : "list-group-item"}  
+          key={item} 
+          onClick={() => setSelectedIndex(index)}>
+            {item}
+          </li>
+        ))}
       </ul>
     </Fragment>
   );
