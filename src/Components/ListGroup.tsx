@@ -4,9 +4,10 @@ import { Fragment } from "react/jsx-runtime";
 interface listGroupProps {
     items : string[];
     headding : string;
+    onSelectItem : () => void;
 }
 
-function ListGroup({items , headding} : listGroupProps) {
+function ListGroup({items , headding , onSelectItem} : listGroupProps) {
 
   // const eventHandler = (event : MouseEvent ) => console.log(event);
 
@@ -22,7 +23,7 @@ function ListGroup({items , headding} : listGroupProps) {
         {items.map((item , index) => (
           <li className={selectedIndes === index ? "list-group-item active" : "list-group-item"}  
           key={item} 
-          onClick={() => setSelectedIndex(index)}>
+          onClick={() => {setSelectedIndex(index);onSelectItem}}>
             {item}
           </li>
         ))}

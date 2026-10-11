@@ -10,7 +10,11 @@ function App() {
     "Mathara",
   ];
 
-  return <div><ListGroup items={items} headding="Citys" /></div>
+  const onSelect = ()=> {
+    console.log('Selected');
+  }
+
+  return <div><ListGroup items={items} headding="Citys" onSelectItem={onSelect} /></div>
 }
 
 export default App;
