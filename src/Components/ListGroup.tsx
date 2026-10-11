@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { Fragment } from "react/jsx-runtime";
 
-function ListGroup() {
-  let items = [
-    "New York",
-    "Kurunegala",
-    "Polgahawela",
-    "Point Fedro",
-    "Mathara",
-  ];
+interface listGroupProps {
+    items : string[];
+    headding : string;
+}
+
+function ListGroup({items , headding} : listGroupProps) {
 
   // const eventHandler = (event : MouseEvent ) => console.log(event);
 
@@ -16,7 +14,7 @@ function ListGroup() {
 
   return (
     <Fragment>
-      <h1>LIst Group</h1>
+      <h1>{headding}</h1>
       {/* {(items.length === 0) ? <p>No items found</p> : null} */}
       {/* second way in this case we dont need to use null operation */}
       {items.length === 0 && <p>No items found</p>}
